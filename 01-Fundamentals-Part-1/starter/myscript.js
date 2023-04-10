@@ -166,13 +166,13 @@ if (height) {
 
 
 // --- EQUALITY OPERATORS: == VS === (comparison)
-*/
+
 
 
 // --- LOGICAL OPERATORS
 
-const hasDriversLicense = true; //A
-const hasGoodVision = true; //B
+//const hasDriversLicense = true; //A
+//const hasGoodVision = true; //B
 
 console.log(hasDriversLicense && hasGoodVision); //&& means AND
 console.log(hasDriversLicense || hasGoodVision);
@@ -185,3 +185,68 @@ if(shouldDrive) {
 } else {
       console.log('Someone else should drive...');
 }
+*/
+
+// --- THE SWITCH STATEMENT
+
+//const day = 'monday';
+
+switch(day) {
+      case 'monday': // day === 'monday'
+            console.log('Plan the course structure');
+            console.log('Go to coding meetup');
+            break;
+      case 'tuesday':
+            console.log('Prepare theory videos');
+            break;
+      case 'wednesday': 
+      case 'thursday':
+            console.log('Write code examples');
+            break;
+      case 'friday':
+            console.log('Record videos');
+      case 'saturday':
+      case 'sunday':
+            console.log('Enjoy the weekend ; D');
+            break;
+      default:
+            console.log('Not a valid day!');
+}
+
+
+if (day === 'monday') {
+console.log('Plan the course structure');
+console.log('Go to coding meetup');
+} else if (day==='tuesday') {
+console.log('Prepare theory videos');
+} else if (day==='wednesday' || day === 'thursday') {
+console.log('Write code examples');
+} else if (day === 'saturday' || day === 'sunday') {
+console.log('Enjoy the weekend ; D');
+} else {
+console.log('Not a valid day!');
+}
+
+//the switch block is easier to read, although they have the same meaning, just a different syntax. it's becoming less used, but always important to know. 
+
+
+
+
+//---- STATEMENTS AND EXPRESSIONS
+
+3 + 4
+1991
+true && false && !false 
+//all this are expressions, but does not execute
+
+
+if (23>10) {
+      const str = '23 is bigger';
+} // this is a statement, just doesn't procude a value.
+
+
+console.log(`I'm ${2037 - 1991} years old.`)
+//statements doesn't make sense when javascript expect an expression. example: try to inser 'if...else' statement in this expression
+
+
+
