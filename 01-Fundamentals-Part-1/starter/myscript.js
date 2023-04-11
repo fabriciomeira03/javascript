@@ -185,7 +185,7 @@ if(shouldDrive) {
 } else {
       console.log('Someone else should drive...');
 }
-*/
+
 
 // --- THE SWITCH STATEMENT
 
@@ -247,6 +247,23 @@ if (23>10) {
 
 console.log(`I'm ${2037 - 1991} years old.`)
 //statements doesn't make sense when javascript expect an expression. example: try to inser 'if...else' statement in this expression
+*/
 
 
 
+
+// ---- THE CONDITIONAL (Ternary) OPERATOR
+//it's like write if...else statement in just one line. it's called "ternary" because it have 3 parts (the condition(1) if(2) and else(3) part)
+
+const age = 23;
+age >= 18 ? console.log('I like to drinke wine'):
+console.log('I like to drink water'); //this one is a lot easier to read and write.
+
+
+let drink2;
+if(age >= 18) {
+      drink2 = 'wine';
+} else {
+      drink2 = 'water';
+}
+console.log(drink2);
