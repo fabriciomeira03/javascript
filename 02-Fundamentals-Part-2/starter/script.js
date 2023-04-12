@@ -27,6 +27,7 @@ logger();
 logger();
 logger();
 
+/*
 function fruitProcessor(apples, oranges) {
     console.log(apples, oranges);
     const juice = `Juice win ${apples} apples and ${oranges} oranges.`;
@@ -36,8 +37,7 @@ function fruitProcessor(apples, oranges) {
 const appleJuice = fruitProcessor(5, 0); 
 //see that this const brings back a value to the 'function' above. ****
 console.log(appleJuice);
-
-
+*/
 
 // --- FUNCTION DECLARATION vs EXPRESSIONS
 
@@ -58,3 +58,47 @@ console.log(age1, age2);
 
 
 
+// -- ARROW FUNCTIONS
+
+//there's actually a 3rd type of function that was added to javascript in ES6. the difference is that is 'shorter and faster to write'.
+
+const calcAge3 = birthYeah => 2023 - birthYeah;
+// it's faster because we don't need { } and the return is implicitly.
+
+const age3 = calcAge3(1986);
+console.log(age3);
+
+//const yearsUntilRetirement = birthYeah => {
+const yearsUntilRetirement = (birthYeah, firstName) => {
+
+    const age = 2023 - birthYeah;
+    const retirement = 65 - age;
+    //return retirement;
+    return `${firstName} retires in ${retirement} years`
+}   
+
+console.log (yearsUntilRetirement (1986, 'Jonas'));
+console.log (yearsUntilRetirement (1979, 'Bob'));
+
+
+
+
+
+// FUNCTIONS CALLING OTHER FUNCTIONS
+
+function cutFruitPieces (fruit) {
+    return fruit * 4;
+}
+function fruitProcessor (apples, oranges) {
+    const applePieces = cutFruitPieces (apples);
+    const orangePieces = cutFruitPieces (oranges);
+    // here we have a function calling another function
+
+
+    const juice = `Juice with ${applePieces} pece of apple and ${orangePieces} pieces of orange.`;
+    return juice;
+}
+
+//now let's think the juice need another machine that cut the fruits in smaller pieces to feed the juice machine.
+
+console.log (fruitProcessor (2, 3));
