@@ -37,7 +37,7 @@ function fruitProcessor(apples, oranges) {
 const appleJuice = fruitProcessor(5, 0); 
 //see that this const brings back a value to the 'function' above. ****
 console.log(appleJuice);
-*/
+
 
 // --- FUNCTION DECLARATION vs EXPRESSIONS
 
@@ -102,3 +102,35 @@ function fruitProcessor (apples, oranges) {
 //now let's think the juice need another machine that cut the fruits in smaller pieces to feed the juice machine.
 
 console.log (fruitProcessor (2, 3));
+
+-------------------------------------- */ 
+
+// REVIEWING FUNCTIONS
+
+const calcAge = function (year) {
+    return 2023 - year;
+}
+
+const yearsUntilRetirement = function (birthYear, firstName) {
+    const age = 2023 - birthYear;
+    const retirement = 65 - age;
+
+    if (retirement > 0) {
+         console.log (`${firstName} retires in ${age} years`);
+        return retirement;
+       
+
+    } else {
+        console.log (`${firstName} has already retired ; )`);
+        return -1;
+    }
+
+    // why it didnt work? because the "return" immediately returns de function, so it ends before the console.log get executed. that's why i moved the order, putting the console.log before the return.
+
+    return retirement
+    //return `${firstName} retires in ${retirement} years`;
+}
+
+
+console.log (yearsUntilRetirement (1986, 'Fabrício')); 
+console.log (yearsUntilRetirement (1950, 'Mike')); //return -8, which means it's already retired for this period of time. because of that we need use "if...else"
