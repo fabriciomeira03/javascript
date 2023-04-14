@@ -104,7 +104,7 @@ function fruitProcessor (apples, oranges) {
 console.log (fruitProcessor (2, 3));
 
 -------------------------------------- */ 
-
+/*
 // REVIEWING FUNCTIONS
 
 const calcAge = function (year) {
@@ -134,3 +134,83 @@ const yearsUntilRetirement = function (birthYear, firstName) {
 
 console.log (yearsUntilRetirement (1986, 'Fabrício')); 
 console.log (yearsUntilRetirement (1950, 'Mike')); //return -8, which means it's already retired for this period of time. because of that we need use "if...else"
+
+-------------------------------------- */ 
+/*
+//----- INTRODUCTION TO ARRAYS
+const friends1 = 'Michael';
+const friends2 = 'Steven';
+const friends3 = 'Peter';
+
+//instead let's do better and work with arrays
+
+const friends = ['Michael', 'Steven', 'Peter'];
+console.log(friends);
+
+
+const years = new Array (1991, 1986, 2008, 2023);
+console.log(friends [0]);
+console.log(friends [2]);
+
+console.log(friends.length);
+
+
+friends[2] = 'Jay';
+console.log(friends);
+//2 got replaced for Jay.
+//array always can be changed and mutate, even though they are declared with const.
+
+
+const fabricio = ['Fabricio', 'Meira', 2023 - 1986, 'student', friends];
+console.log(fabricio);
+
+
+/* ------------------------------------ */ 
+
+
+//----- BASIC ARRAYS METHODS
+
+const friends = ['Michael', 'Steven', 'Peter'];
+
+const newLength = friends.push('Jay');
+console.log(friends);
+console.log(newLength);
+
+friends.unshift('John'); //add elements
+console.log(friends);
+
+//removing elements
+friends.pop(); //last name will be removed
+const popped = friends.pop();
+console.log(popped);
+console.log(friends);
+
+friends.shift(); // remove first element
+console.log(friends);
+
+console.log (friends.indexOf('Steven')); //this should return the value 1, because it's where Steven is located in the list.
+console.log (friends.indexOf('Bob'));
+
+
+
+
+friends.push(23); //"push" adds element to the end of the array
+console.log(friends.includes('Steven'));
+console.log(friends.includes ('Bob'));
+//"includes" return true for steven and false to bob (doesn't exist this element).
+console.log(friends.includes ('23'));
+//returned false because it's not doing type coersion. 23 is different of '23'
+
+
+if (friends.includes('Steven')) {
+    console.log('Only if you have a friend called Steven, you will return as true.')
+}
+
+
+
+
+
+
+
+
+
