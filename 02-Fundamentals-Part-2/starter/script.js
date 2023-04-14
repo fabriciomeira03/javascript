@@ -170,6 +170,7 @@ console.log(fabricio);
 
 //----- BASIC ARRAYS METHODS
 
+/*
 const friends = ['Michael', 'Steven', 'Peter'];
 
 const newLength = friends.push('Jay');
@@ -205,12 +206,67 @@ console.log(friends.includes ('23'));
 if (friends.includes('Steven')) {
     console.log('Only if you have a friend called Steven, you will return as true.')
 }
+*/
+
+/* ------------------------------------ */ 
 
 
+//----- ARRAYS
+//----- Dot vs Bracket Notation
+
+const fabricio = {
+    firstName: 'Fabricio',
+    lastName: 'Meira',
+    age: 2023 - 1986,
+    job: 'student',
+    friends: ['Fulano', 'Ciclano', 'Beltrano']
+};
+
+console.log(fabricio);
+console.log(fabricio.lastName);
+console.log(fabricio['lastName']);
+
+const nameKey = 'Name';
+console.log(fabricio['first' + nameKey]);
+console.log(fabricio['last' + nameKey]);
+//use this last structure is more common than we might think, reason why it's important to know.
 
 
+const interestedIn = prompt('What do you want to know about Fabricio? Choose between firstName, lastName, age, job and friends');
+//remember: this will return a string that should be stored into some variable.
+console.log(interestedIn);
+console.log(fabricio[interestedIn]);
+
+// "undefined" is the return on console when we try to access a properpty in an object that does not exist. <--------------
 
 
+if (fabricio[interestedIn]) {
+    console.log(fabricio[interestedIn]);
+} else {
+    console.log('Wrong request. Choose between firstName, lastName, age, job and friends')
+}
+
+fabricio.location = 'Brasil';
+fabricio['twitter'] = '@fabriciomeira03';
+console.log(fabricio);
 
 
+// Challenge
+//"Jonas has 3 friends, and his best friend is Michael"
 
+const jonas = {
+    firstName: 'Jonas',
+    lastName: 'Schmit',
+    bestFriend: 'Michael',
+    friends: ['Abel', 'Cain', 'Michael']
+}
+
+console.log(jonas);
+const whichOne = prompt('Which one is the best friend of Jonas?') //i could use "if..else" as well.
+console.log(jonas.bestFriend);
+
+
+//Professor's answer:
+
+console.log(`${jonas.firstName} has ${jonas.friends.length} friends, and his best friend is called ${jonas.friends[0]}`);
+//length is a property available in all array's
