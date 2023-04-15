@@ -210,6 +210,7 @@ if (friends.includes('Steven')) {
 
 /* ------------------------------------ */ 
 
+/*
 
 //----- ARRAYS
 //----- Dot vs Bracket Notation
@@ -270,3 +271,178 @@ console.log(jonas.bestFriend);
 
 console.log(`${jonas.firstName} has ${jonas.friends.length} friends, and his best friend is called ${jonas.friends[0]}`);
 //length is a property available in all array's
+
+
+/* ------------------------------------ */ 
+
+/*
+// ----- OBJECT METHODS
+
+//objects, just like arrays, can hold diferent types of data. They can even hold objects inside objects. Going further....functions are just another type of value, so we can create a key value pair in which the value is a function. 
+//it means that we can add functions to objects....let's see how.
+
+//this last form is better, because we don't repeat over and over the year, instead, we just access the data from jonas property.
+const jonas = {
+    firstName: 'Jonas',
+    lastName: 'Meira',
+    birthYear: 1986,
+    job: 'teacher',
+    friends: ['Michael', 'Peter', 'Steven'],
+    hasDriversLicense: true,
+
+    /*-----------------------------------------
+//form 1)
+    calcAge: function(birthYear) {
+        return 2023 - birthYear;
+    }
+
+
+//form 2)
+    calcAge: function() {
+        console.log(this);
+        return 2023 - this.birthYear;
+    }
+
+
+
+//form 3)
+    calcAge: function() {
+        this.age = 2023 - this.birthYear;
+        return;
+    }
+};
+
+
+
+//below, is how we did before. it's just a different syntax. because below the "calcAge" is just a regular variable. 
+
+//above, "calcAge" is a property of 'jonas' object, that's why we used the : instead of = 
+
+//any function that is attached to an object is called a "method". 
+
+console.log(jonas.age);
+
+
+
+// -------- CHALLENGE: write in method a summary that return a string where i can summarize the data about Jonas.
+
+
+
+const jonas = {
+    firstName: 'Jonas',
+    lastName: 'Meira',
+    birthYear: 1986,
+    job: 'teacher',
+    friends: ['Michael', 'Peter', 'Steven'],
+    hasDriversLicense: true,
+},
+
+
+//My answer:
+
+console.log(`${jonas.firstName}, surname ${jonas.lastName}, was born in ${jonas.birthYear} and today work as a ${jonas.job} and have friends like ${jonas.friends}. He talks more with ${jonas.friends[2]}`);
+
+
+//Professor answer:
+
+calcage: function (){
+    this.age = 2023 - birthYear;
+    return this.age;
+},
+
+getSummary: function() {
+    return `${this.firstName} is a ${this.calcAge()} year old ${jonas.job}, and he has ${this.hasDriversLicense ? 'a': 'no'} driver's license.`
+}
+
+console.log(jonas.getSummary()); 
+
+
+
+//friend.push(23);
+//we have an array and on there we call a method, just like we did in this last part of the notes. It means that arrays are actually also objects, they're just a special kind of objects.
+//they have functions (methods) that we can use to manipulate them, such as: push, pop, shift, unshift and many more. 
+
+
+
+// --------- ITERATION: the for LOOP
+
+//Alow us to automate repetitive tasks. It's common for all program languages.
+
+console.log('Lifting weights repetition 1');
+
+//a LOOP have 3 parts. the loop keeps running while condition is TRUE.
+
+//rep ++ (it means rep + rep + 1)
+
+
+//Form 01
+for(let rep = 1; rep <= 10; rep ++) {
+    console.log(`Lifting weights repetition ${rep}`);
+}
+
+
+//Form 02
+for(let rep = 1; rep <= 10; rep ++) {
+    console.log('Lifting weights repetition 1');
+}
+
+----------------------------------------------*/
+
+
+// ---- LOOPING ARRAYS, BREAKING AND CONTINUING
+
+const jonasArray = [
+    'Jonas',
+    'Meira',
+    2023 - 1986,
+    'teacher',
+    ['Michael', 'Peter', 'Steven'],
+    true
+];
+
+// console.log(jonas[0]);
+// console.log(jonas[1]);
+// console.log(jonas[2]);
+// console.log(jonas[3]);
+// console.log(jonas[4]);
+// jonas[5] doesn't exist. will not appear
+
+//Form 01
+for (let i = 0; i < 5 ; i++) {
+    console.log(jonasArray[i]);
+}
+
+
+//Form 02. Better with length because it catches all the elements.
+for (let i = 0; i < jonasArray.length ; i++) {
+    console.log(jonasArray[i], typeof jonasArray[i]);
+}
+
+
+const years = [1991, 2007, 1969, 2020];
+const ages = [];
+
+for (let i = 0; i < years.length; i++) {
+    ages.push(2023 - years[i]);
+}
+
+console.log(ages);
+
+//we cannot do 2023 - years because the return will be NaN, because indeed 'years' is not a number. Instead, javascript does 2037 - 1991 for instance.
+
+
+// ------ CONTINUE AND BREAK
+
+console.log('---- ONLY STRINGS----');
+for (let i = 0; i < jonasArray.length ; i++) {
+    if (typeof jonasArray[i] !== 'string') continue;
+    console.log(jonasArray[i], typeof jonasArray[i]);
+}
+
+
+console.log('---- BREAK WITH NUMBER');
+for (let i = 0; i < jonasArray.length; i++) {
+    if (typeof jonasArray[i] === 'number') break;
+}
+
+//the most important part of this chapter is to know how we can loop through arrays using this kind of logic. it's really important.
