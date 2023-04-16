@@ -386,7 +386,7 @@ for(let rep = 1; rep <= 10; rep ++) {
     console.log('Lifting weights repetition 1');
 }
 
-----------------------------------------------*/
+
 
 
 // ---- LOOPING ARRAYS, BREAKING AND CONTINUING
@@ -446,3 +446,57 @@ for (let i = 0; i < jonasArray.length; i++) {
 }
 
 //the most important part of this chapter is to know how we can loop through arrays using this kind of logic. it's really important.
+
+----------------------------------------------*/
+
+
+// --------- LOOPING BACKWARDS AND LOOPS in LOOPS
+
+const jonas = [
+    'Jonas',
+    'Meira',
+    2023 - 1991,
+    'teacher',
+    ['Michael', 'Peter', 'Steven']
+    
+];
+
+for (let i = jonas.length - 1;  i >= 0; i--) {
+ console.log(i, jonas[i]);   
+}
+
+
+//----- LOOP inside a LOOP
+
+for (let exercise = 1; exercise < 4; exercise++) {
+    console.log(`====== Stating exercise ${exercise}`);
+
+for (let rep = 1; rep < 6; rep++) {
+    console.log(`Lifting weight repetition ${rep}`)
+    }
+
+// ----- THE WHILE LOOP
+
+// the while loop is more versatile than the "for". it can be used in a large variety of situations, and that is because it does not really need a counter (like the "let rep = 1;"). 
+
+//it's there because we really need it, but it just needs the condition, can be any conditition, doesn't depend any counter at all.
+
+let rep = 1;
+while (rep <= 10 ) {
+    console.log (`Lifting weights repetition ${rep}`);
+    rep++;
+}
+
+let dice = Math.trunc (Math.random() * 6) + 1; 
+console.log(dice);
+
+while (dice !== 6) {
+    console.log (`Keep running in those terms ${dice}`);
+    dice++;
+if (dice === 6) 
+    console.log('Loop is about to end...');
+}
+}
+
+
+
