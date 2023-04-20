@@ -1,5 +1,5 @@
 
-
+/*
 const dolphins = (44, 23, 71) / 3; 
 const koalas = (65, 54, 49) / 3;
 const dolphins2 = (65, 54, 49) / 3;
@@ -11,20 +11,20 @@ function calcAverage (dolphins, koalas, dolphins2, koalas2) {
 }
 
 console.log()
+*/
 
+//////////Professors answer:
 
-//Professors answer:
 
 const calcAverage = (a, b, c) => (a + b + c) / 3;
-console.log (calcAverage (3, 4, 5)); //here used random numbers, becaue we now here supposed to be 4, the middle one as the average between the 3 numbers. se we now are good to go and proceed.
-
+console.log (calcAverage (3, 4, 5)); //here used random numbers, becaue we now here supposed to be 4, the middle one is the average between the 3 numbers. se we now are good to go and proceed.
 
 //Test1
 const scoreDolphins = calcAverage(44, 23, 71);
 const scoreKoalas = calcAverage(65, 54, 49);
 console.log (scoreDolphins, scoreKoalas);
 
-const checkwinner = function(avgDolphins, avgKoalas) {
+const checkWinner = function(avgDolphins, avgKoalas) {
     
     if (avgDolphins >= 2 * avgKoalas) {
     consolelog(`Dolphins win (${avgDolphins} vs ${avgKoalas}))`);
@@ -35,14 +35,16 @@ const checkwinner = function(avgDolphins, avgKoalas) {
     }
     }
 
-checkwinner(scoreDolphins, scoreKoalas);
-checkwinner(576, 111);
+checkWinner(scoreDolphins, scoreKoalas);
+
 
 
 // arrow function: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
 
 
 //'calcAverage' is isolated of the rest of the code. them we can use for our own purpose. it's important internalize this aspect of functions, and only then, we can really be abl to start to see the potention of functions everywhere in our code.
+
+//a FUNCTION is really like a machine in some sense. It doesn't care where the inputs are from or where they go. All the function does is calculate the parameters (in case, the average).
 
 
 
