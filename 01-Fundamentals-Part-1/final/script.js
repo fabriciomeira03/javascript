@@ -5,7 +5,8 @@ let js = "amazing";
 console.log(40 + 8 + 23 - 10);
 
 ////////////////////////////////////
-// Values and Variables
+
+// -----------------  VALUES AND VARIABLES
 console.log("Jonas");
 console.log(23);
 
@@ -31,7 +32,9 @@ let job2 = "teacher";
 console.log(myFirstJob);
 
 ////////////////////////////////////
-// Data Types
+
+// ------------ DATA TYPES
+
 let javascriptIsFun = true;
 console.log(javascriptIsFun);
 
@@ -53,7 +56,7 @@ console.log(typeof year);
 console.log(typeof null);
 
 ////////////////////////////////////
-// let, const and var
+// ------------------let, const and var
 let age = 30;
 age = 31;
 
@@ -66,6 +69,8 @@ job = 'teacher'
 
 lastName = 'Schmedtmann';
 console.log(lastName);
+
+
 
 ////////////////////////////////////
 // Basic Operators
@@ -91,6 +96,8 @@ x--;
 x--;
 console.log(x);
 
+
+/////////////////////////////////////
 // Comparison operators
 console.log(ageJonas > ageSarah); // >, <, >=, <=
 console.log(ageSarah >= 18);
@@ -98,6 +105,8 @@ console.log(ageSarah >= 18);
 const isFullAge = ageSarah >= 18;
 
 console.log(now - 1991 > now - 2018);
+
+
 
 ////////////////////////////////////
 // Operator Precedence
@@ -114,6 +123,7 @@ console.log(x, y);
 const averageAge = (ageJonas + ageSarah) / 2;
 console.log(ageJonas, ageSarah, averageAge);
 */
+
 
 ////////////////////////////////////
 // Coding Challenge #1
@@ -148,6 +158,7 @@ const markHigherBMI = BMIMark > BMIJohn;
 
 console.log(BMIMark, BMIJohn, markHigherBMI);
 
+
 ////////////////////////////////////
 // Strings and Template Literals
 const firstName = 'Jonas';
@@ -170,6 +181,7 @@ lines');
 console.log(`String
 multiple
 lines`);
+
 
 
 ////////////////////////////////////
@@ -229,8 +241,9 @@ if (BMIMark > BMIJohn) {
   console.log(`John's BMI (${BMIJohn}) is higher than Marks's (${BMIMark})!`)
 }
 
+
 ////////////////////////////////////
-// Type Conversion and Coercion
+// -------------Type Conversion and Coercion
 
 // type conversion
 const inputYear = '1991';
@@ -275,6 +288,8 @@ if (height) {
   console.log('Height is UNDEFINED');
 }
 
+
+
 ////////////////////////////////////
 // Equality Operators: == vs. ===
 const age = '18';
@@ -297,6 +312,9 @@ if (favourite === 23) { // 22 === 23 -> FALSE
 }
 
 if (favourite !== 23) console.log('Why not 23?');
+
+
+
 
 ////////////////////////////////////
 // Logical Operators
@@ -411,6 +429,8 @@ if (day === 'monday') {
 } else {
   console.log('Not a valid day!');
 }
+
+
 
 ////////////////////////////////////
 // Statements and Expressions
