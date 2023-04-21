@@ -22,7 +22,7 @@ console.log (calcAverage (3, 4, 5)); //here used random numbers, becaue we now h
 //Test1
 const scoreDolphins = calcAverage(44, 23, 71);
 const scoreKoalas = calcAverage(65, 54, 49);
-console.log (scoreDolphins, scoreKoalas);
+
 
 const checkWinner = function(avgDolphins, avgKoalas) {
     
@@ -35,7 +35,13 @@ const checkWinner = function(avgDolphins, avgKoalas) {
     }
     }
 
-checkWinner(scoreDolphins, scoreKoalas);
+    checkWinner(scoreDolphins, scoreKoalas);
+
+/*
+//Test2
+let scoreDolphins = calcAverage(44, 23, 71);
+let scoreKoalas = calcAverage (65, 54, 49);
+*/
 
 
 
@@ -47,4 +53,8 @@ checkWinner(scoreDolphins, scoreKoalas);
 //a FUNCTION is really like a machine in some sense. It doesn't care where the inputs are from or where they go. All the function does is calculate the parameters (in case, the average).
 
 
+// to REASIGN the variables, we need change de "const" to "let" so we can just ride them instead of making new variables.
 
+//REVIEWING FUNCTIONS is a great class.
+
+// FUNCTIONS are used to reuse pieces of code.

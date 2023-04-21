@@ -9,4 +9,4 @@ console.log(`The bill was ${bill}, the tip was ${tip}, and the total value ${bil
 
 //syntax of '?':    condition ? true : false 
 //it's like if...else  
-// it's called ternary operator 
+//this is called "ternary operator"
