@@ -75,3 +75,43 @@ const calcTempAmplitude = function (temps) {
 };
 calcTempAmplitude([3, 7, 4, 1, 8]);
 calcTempAmplitude(temperatures);
+
+
+
+///////////////////////////////////////////
+// Let's write a function thta creates the measurement 
+
+const measureKelvin = function () {
+    const measurement = {
+    //object for measurement (arrays have [])
+        type: 'temp',
+        unit: 'celsius',
+        value: prompt('Degrees celsius')
+    }
+
+    const kelvin = measurement.value + 273;
+    //let's convert that to kelvin. here we worked with the "value: prompt" that was stored. 
+    return kelvin;
+};
+
+//FIX. 
+//the solution is to convert the string to a number
+value: Number(prompt('Degrees celsius:')); 
+
+//B) FIND THE BUG
+console.table(measurement);
+
+//A) IDENTIFYING THE BUG
+console.log(measureKelvin()); // the problem was the value as a string. that because the PROMPT function ALWAYS return a string, no matter what we put into that prompt window. 
+//this creates a problem because the + operator will convert both into a string and concatenate.
+
+/*
+console.log(measurement.value);
+console.warn(measurement.value);
+console.error(measurement.value);
+------
+what reallly solved the issue:
+
+console.log(measurement); ~ took the entire object and not just the value.
+console.table(measurement);
+*/
