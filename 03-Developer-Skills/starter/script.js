@@ -12,7 +12,7 @@ const calcTempAmplitude = function (temps) {
         const curTemp= temps[i];
         //let's start with "counter 'i'"
         if(temps[i] > max) max = temps[i];
-        //how to read this last sentence: if temps at position i is greater than the current maximum value, then (after parenteses), the maximum value will become the maximum value.
+        //***** how to read this last sentence: if temps at position i is greater than the current maximum value, then (after parenteses), the maximum value will become the maximum value. **********
         //it make sense because if the current value in the array is greater than the maximum, well, this value should become the maximum.
         if(temps[i] < min) min = temps[i];
     }
@@ -115,3 +115,4 @@ what reallly solved the issue:
 console.log(measurement); ~ took the entire object and not just the value.
 console.table(measurement);
 */
+
