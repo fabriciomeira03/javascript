@@ -1,22 +1,26 @@
 'use strict';
 
+//REFACTORING means change the code without change the way it works. Eliminate what? duplicated parts of code.
+
+//sometimes a good refactoing technic is to create functions(). we can call the function in all the places where we had a duplicated code, we can call over & over.
+
+//example with '.message':
 /*
 
-//***** MAIN SQUARE AT THE TOP OF PAGE
-console.log(document.querySelector('.message').textContext);
-document.querySelector('.message') .textContent = 'Correct Number!';
+const displayMessage = function(message) {
+    document.querySelector('.message').textContent = message;
+}
 
-document.querySelector('.number').textContent = 11;
-document.querySelector('.score').textContent = 10
+now whenever i want, i just call the function from with:
 
+displayMessage('No Number!); 
 
-//**** CHECK NUMBER SQUARE
-console.log(document.querySelector('.guess').value);
-//to access we must know the element. so we must go to the html file and see what is the element.
-//BIG take and difference: the imput field must be accessed with the ".value" as the end shows.
-document.querySelector('.guess').value = 23;
+or 
+
+displayMessage(guess > secretNumber ? 'Too high!' : 'Too low!');
 
 */
+
 
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
@@ -60,26 +64,16 @@ document.querySelector('body').style.backgroundColor = '#60b347';
 document.querySelector ('.number').style.width = '30rem';
 
 
-//when guess is too high
-} else if (guess > secretNumber) {
-    if(score > 1) {
-        document.querySelector('.message').textContent = 'Number is too high';
-        score--;
-        document.querySelector('.score').textContent = score;
-    } else {
-        document.querySelector('.message').textContent = 'You lost the game'
-        document.querySelector('.score').textContent = 0;
-    }
-
-//when guess is too low
-} else if (guess < secretNumber) {
-    document.querySelector('.message').textContent = 'Number is too low';
+//wrong guess
+} else if(guess !== secretNumber ) {
+    document.querySelector('.message').textContent = guess > secretNumber ? 'Number is too high!' : 'Number is too low!'
     score--;
     document.querySelector('.score').textContent = score;
+} else {
+    document.querySelector('.message').textContent = 'You lost the game'
+    document.querySelector('.score').textContent = 0;
 }
-
 });
-
 
 document.querySelector('.again').addEventListener('click', function() {
 //handler function or anonymous function because it doesn't have a name.
