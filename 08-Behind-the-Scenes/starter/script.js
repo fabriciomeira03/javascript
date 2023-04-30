@@ -74,6 +74,7 @@ const jonas = {
     year: 1991,
     calcAge: function () {
         console.log(this);
+        console.log(2037 - this.year);
     },
 };
 jonas.calcAge();
@@ -84,6 +85,54 @@ const matilda = {
 };
 
 matilda.calcAge = jonas.calcAge; //simple applying the 'calcAge' of jonas to matilda. it's called method borrowing.
+matilda.calcAge();
+
+const f = jonas.calcAge;
 
 
+
+//////////////////////////////////////////
+// REGULAR FUNCTIONS vs ARROW FUNCTIONS
+
+
+
+
+//////////////////////////////////////////
+// PRIMITIVES VS OBJECTS (Primitive vs Reference Types)
+
+/*
+let age = 30;
+let oldAge = age;
+age = 31;
+console.log(age);
+console.log(oldAge);
+
+const me = {
+    name: 'Jonas',
+    age: 30,
+};
+
+const friend = me;
+friend.age = 27;
+console.log('Friend:', friend);
+console.log('Me', me);
+*/
+
+
+let lastName = 'Williams';
+let oldLastName = lastName;
+console.log(lastName); //williams
+lastName = 'Davis'; //davis
+console.log(lastName, oldLastName);
+
+const jessica = {
+    firstName: 'Jessica',
+    lastName: 'Williams',
+    age: 27,
+};
+const marriedJessica = jessica;
+//looks like it's copying the entire object. when in fact it's just copying the reference, which then points to the same object.
+marriedJessica.lastName = 'Davis';
+console.log('Before marriage:', jessica);
+console.log('After marriage:', marriedJessica);
 
