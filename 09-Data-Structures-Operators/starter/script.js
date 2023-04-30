@@ -12,6 +12,23 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
+};
+
+const arr = [2, 3, 4];
+const a = arr[0];
+const b = arr[1];
+const c = arr[2];
+//breakets because we're destructuring the array. it's like "unpacking" the array
+
+const [x, y, z] = arr;
+console.log(x, y, z);
+
+const [first, ,  second] = restaurant.categories; //'restaurant.categories' is the array which we want to abstract.
+console.log(first, second);
+
+
+
+/*
   openingHours: {
     thu: {
       open: 12,
@@ -27,3 +44,4 @@ const restaurant = {
     },
   },
 };
+*/
