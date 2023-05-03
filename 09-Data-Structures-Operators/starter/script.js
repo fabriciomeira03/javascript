@@ -264,3 +264,54 @@ console.log(sum);
  //////// Short Circuiting (&& and ||) ///////////////////
 
  //until now we just used && or || to combine boolean values. but it goes far beyond that.
+
+console.log(3 || 'Jonas');
+console.log(' ' || 'Jonas');
+console.log(true || 0);
+console.log(undefined || null);
+console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+
+restaurant.numGuests = 23;
+
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10; //ternary operator
+
+const guests2 = restaurant.numGuests || 10; 
+console.log(guests2); //easier than use ternary operator
+
+
+// Now lets see the AND operator
+//it works exactly the opposite of || operator
+
+console.log(0 && 'Jonas');
+console.log(7 && 'Jonas');
+console.log('Hello' && 23 && null && 'Jonas');
+
+//Practical example
+if (restaurant.orderPizza) {
+  restaurant.orderPizza ('mushrooms', 'spinach');
+}
+
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+
+
+
+//RESUME:
+// OR operator: will return the first truthy value of all the operants, or the last of them if all the others are falsy
+
+// AND operator: return the first falsy value or the last one of them is all the others are truthy.
+
+//PRACTICAL EXAMPLES: we can use OR operators to set default values and && operators to execute code in the second operant (??) if the first one is true.
+
+
+
+
+// NULISH VALUE ---------------
+//null and undefined (not 0 or '')
+
+
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect); //only if 'restaurant.numGuests' was null or undefined the second operand would be executed.
+
+
+
+
