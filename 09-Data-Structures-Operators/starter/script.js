@@ -255,8 +255,8 @@ console.log(sum);
   add(...x);
 
 
-  restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach'); //the first argument was stored at line 216 in "mainIngredient", and them all the remaining argument was passed were stored into the array (...otherIngredients) by the REST syntax ******
- restaurant.orderPizza('mushrooms');
+  //restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach'); //the first argument was stored at line 216 in "mainIngredient", and them all the remaining argument was passed were stored into the array (...otherIngredients) by the REST syntax ******
+ //restaurant.orderPizza('mushrooms');
 
 
 
@@ -305,12 +305,79 @@ restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
 
 
 
-// NULISH VALUE ---------------
+// ------- NULISH VALUE ---------------
 //null and undefined (not 0 or '')
 
 
 const guestCorrect = restaurant.numGuests ?? 10;
 console.log(guestCorrect); //only if 'restaurant.numGuests' was null or undefined the second operand would be executed.
+
+
+
+// -------- LOOPING FOR ARRAYS --------------
+
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+
+for (const item of menu) console.log(item);
+
+
+// old way
+//for (const item of menu.entries()) {
+//  console.log(item);
+//  console.log(`${item[0] + 1} ${item[1]}`);
+//}
+
+//new way. destructuring
+for (const [i, el] of menu.entries()) {
+console.log(`${i + 1}: ${el}`);
+}
+
+// console.log(menu.entries);
+
+//order(starterIndex, mainIndex);
+
+
+
+// -------- Enhanced Object Literals --------------
+
+
+if (restaurant.openingHours && restaurant.openingHours.mon);
+console.log(restaurant.openingHours.mon.open);
+
+// ------------- WITH Optional Chaining ------------------
+console.log(restaurant.openingHours.mon?.open); 
+//only if monday existits, then the open property will be read, otherwise, won't be read. if not read (because it doesn't exist), "undefined" will be returned.
+
+console.log(restaurant.openingHours?.mon?.open);
+//it's better to prevent bugs and erros
+
+
+//Real and practical example ---- with optional chaining ---
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+for(const day of days) {
+
+const open = restaurant.openingHours[day]?.open ?? 'closed';
+console.log(`On ${day}, we open at ${open}`);
+}
+
+
+
+
+//Methods (still about optional chaining and Nullish coalescing)
+console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+console.log(restaurant.orderRisotto)?.(0,1) ?? 'Method does not exist';
+
+//Arrays
+const users = [{name: 'Jonas', e-mail: 'hello@jonas.io'}];
+console.log(users); //meaning of line: only if exists give the name. Test if the value on the left exists.
+
+//using the IF we would need write like:
+if (users.length > 0 ) console.log(users[0].name); else console.log('user array empty');
+
+
 
 
 
