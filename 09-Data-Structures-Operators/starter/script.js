@@ -187,7 +187,7 @@ console.log(restaurant.name);
 // ////////////// REST PATTERNS & PARAMETERS ////////////////
 
 //spread operator is to expand an array into individual elements. the REST PATTERN use the exactly same syntax, however, to collect multiple elements and condense it into an array. it's the OPPOSITE of the spread.
-
+/*
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
@@ -195,8 +195,8 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-  order: function(starterIndex, mainIndex) {
-    return [this.starterMenu[starterIndex], this.mainMenu[mainMenu]];
+    order: function(starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainIndex[mainIndex]];
   },
 
       openingHours: {
@@ -344,7 +344,7 @@ console.log(`${i + 1}: ${el}`);
 
 
 if (restaurant.openingHours && restaurant.openingHours.mon);
-console.log(restaurant.openingHours.mon.open);
+//console.log(restaurant.openingHours.mon.open);
 
 // ------------- WITH Optional Chaining ------------------
 console.log(restaurant.openingHours.mon?.open); 
@@ -371,13 +371,47 @@ console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
 console.log(restaurant.orderRisotto)?.(0,1) ?? 'Method does not exist';
 
 //Arrays
-const users = [{name: 'Jonas', e-mail: 'hello@jonas.io'}];
+const users = [{name: 'Jonas', email: 'hello@jonas.io'}];
 console.log(users); //meaning of line: only if exists give the name. Test if the value on the left exists.
 
 //using the IF we would need write like:
 if (users.length > 0 ) console.log(users[0].name); else console.log('user array empty');
 
+*/
+// ------------- SETS ------------------
 
+const orderSet = new Set ([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Risotto',
+  'Pasta',
+  'Pizza',
+]);
+console.log(orderSet);
+
+console.log(orderSet.size);
+console.log(orderSet.has('Pizza'));
+console.log(orderSet.has('Bread'));
+orderSet.add('Garlic Bread');
+orderSet.add('Garlic Bread');
+orderSet.delete('Risotto');
+console.log(orderSet);
+orderSet.clear();
+
+//Practical example
+//in real world, the common use of set is to remove duplicate values of arrays. Example:
+
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+//const staffUnique = new set (Staff);
+const staffUnique = [...new Set (staff)];
+console.log(staffUnique);
+
+//the conversion from a set to array is easy because they're both ineretables. Remember from ealier that the ...spread operator works in all inheretables. So that includes "Sets"
+
+console.log(new Set ('Jonasschmedtmann').size);
+
+//Resume: "Set" are not intended do substitute "arrays". Whenever need store values in order and might continue to duplicate, always use arrays. Otherwise, use "Set" to unique values.
 
 
 
