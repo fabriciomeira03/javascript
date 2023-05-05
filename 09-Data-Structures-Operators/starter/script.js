@@ -414,5 +414,88 @@ console.log(new Set ('Jonasschmedtmann').size);
 //Resume: "Set" are not intended do substitute "arrays". Whenever need store values in order and might continue to duplicate, always use arrays. Otherwise, use "Set" to unique values.
 
 
+/*
+// ---- Maps: fundamentals -----
+
+//MAP is a data structured used to map values to keys.
+//Data is stored in key value pairs in maps. 
+//Difference between MAPS and OBJECTS:
+//maps the keys can have any type (object, arrays, other maps, open margin to great and advance things)
+//object the keys are always strings
+
+
+const rest = new Map();
+rest.set('name', 'Classico Italiano');
+rest.set(1, 'Firenze, Italy')
+console.log(rest.set(2, 'Lisbon, Portugal'));
+
+rest.set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+.set('open', 11)
+.set('close', 23)
+.set(true, 'We are open : D')
+.set(false, 'We are closed : (')
+
+console.log(rest.get('name'));
+console.log(rest.get('true'));
+
+const time = 21;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+
+console.log(rest.has('categories'));
+rest.delete(2);
+rest.set([1, 2], 'Test')
+console.log(rest);
+console.log(rest.size);
+//rest.clear()
+
+console.log(rest.get([1, 2]));
+//line 452 and line 447 are NOT the same object. even though we wrote in the same way, they're not the same.
+
+//the key is the object in memory t line 447. 
+//to it work, we need creater an array 1, 2 and use the same array to read the value of the map.
+
+//so instead of the above, look below:
+const arr = [1, 2];
+rest.set(arr, 'Test');
+console.log(rest);
+console.log(rest.size);
+console.log(rest.get(arr));
+
+*/
+
+// ---- MAP ITERATION ----
+const question = new Map([
+['question', 'what is the best programming language in the world?'],
+[1, 'C'],
+[2, 'Java'],
+[3, 'Javascript'],
+['correct', 3],
+[true, 'Correct!'],
+[false, 'Try again!']
+]);
+console.log(question);
+
+
+//Convert object to map
+console.log(Object.entries(openingHours));
+const hoursMap = new Map(Object.entries(openinghours));
+console.log(hoursMap);
+//it's a good trick to remember whenever you need a map when you already have an object.
+
+//Quiz app
+for (const [key, value] of question) {
+  if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+}
+
+const answer = Number(prompt('Your answer'));
+//we need convert to a number (from 1 to 3 as described above)
+
+console.log(question.get(question.get('correct') === answer));
+
+
+//Sometimes we need convert a MAP back to an ARRAY
+//we do it by building a new array and unpacking with spread operator
+console.log([...question]); //reference line 468 
 
 
