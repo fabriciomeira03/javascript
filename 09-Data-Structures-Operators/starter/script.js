@@ -149,7 +149,7 @@ console.log(o, c);
 
 //the spread operator takes all the elements from the array and also doesn't create new variables. As consequence, we can only use it in places where we otherwise write values separated by commas ******************
 
-/*
+
 const arr = [7, 8, 9];
 const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
 console.log(badNewArr);
@@ -202,8 +202,8 @@ console.log(restaurant.name);
 
 // ////////////// REST PATTERNS & PARAMETERS ////////////////
 
-//spread operator is to expand an array into individual elements. the REST PATTERN use the exactly same syntax, however, to collect multiple elements and condense it into an array. it's the OPPOSITE of the spread.
-/*
+//spread operator is to expand an array into individual elements. the REST PATTERN use a very similar syntax, however, to collect multiple elements and condense it into an array. it's the OPPOSITE of the spread.
+
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
