@@ -308,7 +308,7 @@ if (restaurant.orderPizza) {
 }
 
 restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
-
+//with the "if" here we're just checking if the method 'restaurant.orderPizza' exist. and if does exist, we want to call it. ********
 
 
 //RESUME:
