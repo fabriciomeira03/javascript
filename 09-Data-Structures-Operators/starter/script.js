@@ -67,6 +67,7 @@ console.log(p, q, r);
 
 ////////////// Destructuring Objects ///////////////////////
 
+/*
 
 // Data needed for first part of the section
 const restaurant = {
@@ -149,7 +150,7 @@ console.log(o, c);
 
 //the spread operator takes all the elements from the array and also doesn't create new variables. As consequence, we can only use it in places where we otherwise write values separated by commas ******************
 
-
+/*
 const arr = [7, 8, 9];
 const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
 console.log(badNewArr);
@@ -204,6 +205,7 @@ console.log(restaurant.name);
 
 //spread operator is to expand an array into individual elements. the REST PATTERN use a very similar syntax, however, to collect multiple elements and condense it into an array. it's the OPPOSITE of the spread.
 
+/*
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
@@ -396,6 +398,7 @@ if (users.length > 0 ) console.log(users[0].name); else console.log('user array 
 */
 // ------------- SETS ------------------
 
+/*
 const orderSet = new Set ([
   'Pasta',
   'Pizza',
@@ -480,7 +483,10 @@ console.log(rest.get(arr));
 
 */
 
+/*
+
 // ---- MAP ITERATION ----
+
 const question = new Map([
 ['question', 'what is the best programming language in the world?'],
 [1, 'C'],
@@ -514,4 +520,137 @@ console.log(question.get(question.get('correct') === answer));
 //we do it by building a new array and unpacking with spread operator
 console.log([...question]); //reference line 468 
 
+*/
 
+
+// ---- Working with Strings (part 1) ---- 
+
+//Methods: comparing strings with arrays. STRINGS also have methods. Some of them are quite similar to the array methods. One of them is the .indexOf();
+
+/* 
+
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+
+console.log(airline.indexOf(r)); //return position 6
+console.log(airline.lastIndexOf(r)); //return position 10
+console.log(airline.slice(4)); //return letter A
+console.log(airline.slice(4, 7)); //the length here will be 3 (7 minus 4)
+
+console.log(airline.slice(-2));
+console.log(airline.slice(1, -1));
+
+//this doesn't mutate strings. They're primitive, so can't be changed (it's impossible actually)
+
+
+//EXERCISE for example
+
+const checkMiddleSeat = function(seat) {
+  //B and E are middle seats
+  const s = seat.slice(-1)
+  if(s === 'B' || s === 'E')
+  console.log('You got the middle seat ');
+  else console.log('You got lucky');
+}
+
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
+
+console.log(new String ('jonas'));
+
+//We know that strings are  just primitives. So why they have methods? Should methods only be available on objects, such as arrays? That's true, however, here is how this works.
+
+//when we call a method on a string, Javascript - behind the scenes - convert that string primitive to a string object with the same object, and then in that object the method is called (process called boxing)
+
+*/
+
+
+// ---- Working with Strings (part 2) ---- 
+
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+
+// Fix capitalization in name (we could do it as a function too)
+const passenger = 'jOnAS'; //must fix to Jonas
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect = passengerLower[0].toUpperCase () + passengerLower.slice(1);
+console.log(passengerCorrect);
+
+
+
+//Comparing emails
+
+const email = 'hello@jonas.io';
+const loginEmail = '    Hello@Jonas.io \n';
+//converting e-mails that still valid
+
+const lowerEmail = loginEmail.toLowerCase();
+const trimmedEmail = lowerEmail.trim();
+console.log(trimmedEmail);
+
+//what happened? we called to lower case, stored in the variable and called trim method. We could do this all in one step.
+
+
+//in just one step:
+const normalizeEmail = loginEmail.toLowerCase().trim();
+console.log(normalizeEmail);
+console.log(email === normalizeEmail);
+
+
+//Replacing example 1
+const priceGB = '288, 97§';
+const priceUS = priceGB.replace('§', '$').replace (',', '.');
+console.log(priceUS);
+
+
+
+//Replacing example 2
+const announcement = 'All passangers come to boarding door 23. Boarding door 23!'
+console.log(announcement.replace('door', 'gate'));
+//console.log(announcement.replaceAll('door', 'gate'));
+
+console.log(announcement.replace(/door/g, 'gate')); //g for global
+
+
+//Booleans
+const plane2 = 'A320neo';
+console.log(plane.includes('A320'));
+console.log(plane.includes('Boeing'));
+console.log(plane.startsWith('Airb'));
+
+if(plane.startsWith('Airbus') && plane.endsWith('neo')) {
+  console.log('Part of the NEW Airbus family');
+} //the if to check
+
+
+// Practice exercise
+const checkBaggage = function (items) {
+
+    const baggage = items.toLowerCase();
+    if (baggage.includes('knife') || baggage.includes('gun')) {
+      console.log('NOT allowed on board');
+    } else {
+      console.log('Welcome aboard');
+    }
+}
+
+checkBaggage('I have a laptiome, some Food ad a pocket Knife');
+checkBaggage('Socks and camera');
+checkBaggage('Got some snacks and a gun for protection');
+
+//consider the person likes to use upprecase for some reason.
+
+// *** when we receive input from a user, the best thing to do is always start putting everything in lowercase becauseit makes a lot easier to compare to something. ***
+
+
+
+
+// ---- Working with Strings (part 3) ---- 
+
+// works with Split and Join combination (powerfull).
+// also, review trim method as well
