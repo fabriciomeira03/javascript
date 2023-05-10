@@ -1,6 +1,7 @@
 'use strict';
 
 
+/*
 //-------------- DEFAULT PARAMETERS --------------------
 
 const bookings = [];
@@ -70,9 +71,10 @@ checkIn(flight, jonas);
 
 
 
+*/
 //-------------- Function accepting callback functions  --------------------
 
-
+/*
 
 //LOW level function (or order) 01
 const oneWord = function(str) {
@@ -108,10 +110,10 @@ script.js:91 Transformed string: Javascript is the best!
 script.js:93 Transformed by: upperFirstWord
 
 */
-
+/*
 transformer('Javascript is the best!', oneWord);
-
-
+*/
+/*
 //RECAP: 
 //JS uses callbacks all the time.
 
@@ -146,8 +148,8 @@ greet('Hello') ('Jonas');
 //all in one sentence example
 
 
-
-
+*/
+/*
 // ---------------- Call and apply methods -----------------
 
 const lufthansa = {
@@ -165,7 +167,10 @@ lufthansa.book(239, 'Jonas Shmed');
 lufthansa.book(635, 'John Smith');
 console.log(lufthansa);
 
+*/
 
+
+/*
 const euroWings = {
     name: 'EuroWings',
     iataCode: 'EW',
@@ -176,9 +181,9 @@ const euroWings = {
 const book = lufthansa.book;
 
 //Does NOT work
-book(23, 'Sarah Williams');
+//book(23, 'Sarah Williams');
 
-//let's try to use this function to make a new book. An error will happen if stay like this. why? because this 'book' is not the 'book' from line 158 anymore. it's a copy of 'lufthansa.book' but it's not a method anymore, it's a function. As result, the "this." keyword is now pointing to 'undefined'...causing the error.
+//let's try to use this function to make a new book (line 188). An error will happen if stay like this. why? because this 'book' is not the 'book' from line 158 anymore. it's a copy of 'lufthansa.book' but it's not a method anymore, it's a function. As result, the "this." keyword is now pointing to 'undefined'...causing the error. --------------------------------------------------------------------------------------------------------
 
 //if we want book a lufthansa flight, the 'this.' keyword should point to lufthansa.
 //if we want book a euroWings flight, the 'this.' keyword should point to euroWings.
@@ -191,6 +196,12 @@ console.log(euroWings);
 book.call(lufthansa, 239, 'Mary Cooper');
 console.log(lufthansa);
 
+const swiss = {
+    name: 'Swiss Air Lines',
+    iataCode: 'LX',
+    bookings: []
+}
+
 
 //Apply method (not much used in modern javascript)
 const flightData = [583, 'George Cooper'];
@@ -198,3 +209,47 @@ book.apply(swiss, flightData);
 console.log(swiss)
 
 book.call(swiss, ...flightData) //better and modern.
+
+*/
+
+
+
+// ---------------- The Bind Method -----------------
+
+//Recap: last class we had the euroWings object. Then we used book.call to use the book function with the euroWings set with the 'this.' keyword.
+
+/*
+const bookEW = book.bind(euroWings);
+//this will not call the book function. Instead, will create a new function 
+const bookLH = book.bind(lufthansa);
+const bookLX = book.bind(swiss);
+
+bookEW(23, 'Steven Williams');
+
+const bookEW23 = book.bind(eurowings, 23); //this will set in stone. Then it's just work with the names. This method is called 'parcial application'. 
+bookEW23('Jonas Schmed');
+bookEW23('Martha Cooper');
+*/
+
+//With Event Listeners
+lufthansa.planes = 300;
+lufthansa.buyPlane = function () {
+    console.log(this);
+    
+    this.planes++ //essentially will add a new plane whenever this button is clicked.
+    console.log(this.planes)
+};
+document.querySelector('.buy').addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+
+
+//Partial application
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.23);
+//VAT means 'value after tax'
+//addVAT = value => value + value * 0.23;
+
+console.log(addVAT(100));
+console.log(addVAT(23));
+
