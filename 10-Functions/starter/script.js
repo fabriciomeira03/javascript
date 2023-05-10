@@ -123,3 +123,78 @@ document.body.addEventListener('click', high5); //'high5' is the callback functi
                                                //'high5' is the callback function  and 'addEventListener' is the highorder function. 
 
 ['Jonas', 'Martha', 'Adam'].forEach(high5);
+
+
+
+// ---------------- Creating a function that returns a new function -----------------
+//it's the opposite of the last class
+//Beggining to understand 'closures'
+
+const greet = function(greeting) {
+    return function(name) {
+        console.log(`${greeting} ${name}`);
+    }
+}
+
+const greeterHey = greet('Hey');
+greeterHey('Jonas');
+greeterHey('Steven');
+
+//our first function greet (line 139) return a new function that's stored in the variable 'greeterHey' (line 139) and this variable is now just a function that we can call using the () syntax
+
+greet('Hello') ('Jonas');
+//all in one sentence example
+
+
+
+
+// ---------------- Call and apply methods -----------------
+
+const lufthansa = {
+    airline: 'Lufthansa',
+    iataCode: 'LH',
+    booking: [],
+    //book: function() {}
+    book(flightNumber, name) {
+        console.log(`${name} booked a set on ${this.airline} flight ${this.iataCode} ${flightNumber}`); //'this.' word is going to the object itself.
+        this.bookings.push({flight: `${this.iataCode} ${flightNumber}`, name});
+    },
+};
+
+lufthansa.book(239, 'Jonas Shmed');
+lufthansa.book(635, 'John Smith');
+console.log(lufthansa);
+
+
+const euroWings = {
+    name: 'EuroWings',
+    iataCode: 'EW',
+    booking: [],
+};
+
+
+const book = lufthansa.book;
+
+//Does NOT work
+book(23, 'Sarah Williams');
+
+//let's try to use this function to make a new book. An error will happen if stay like this. why? because this 'book' is not the 'book' from line 158 anymore. it's a copy of 'lufthansa.book' but it's not a method anymore, it's a function. As result, the "this." keyword is now pointing to 'undefined'...causing the error.
+
+//if we want book a lufthansa flight, the 'this.' keyword should point to lufthansa.
+//if we want book a euroWings flight, the 'this.' keyword should point to euroWings.
+
+//how to do that? there are 3 functions to do that: call, apply and bind.
+
+book.call(euroWings, 23, 'Sarah Williams');
+console.log(euroWings);
+
+book.call(lufthansa, 239, 'Mary Cooper');
+console.log(lufthansa);
+
+
+//Apply method (not much used in modern javascript)
+const flightData = [583, 'George Cooper'];
+book.apply(swiss, flightData);
+console.log(swiss)
+
+book.call(swiss, ...flightData) //better and modern.
