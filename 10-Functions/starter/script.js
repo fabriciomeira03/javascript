@@ -231,6 +231,7 @@ bookEW23('Jonas Schmed');
 bookEW23('Martha Cooper');
 */
 
+/*
 //With Event Listeners
 lufthansa.planes = 300;
 lufthansa.buyPlane = function () {
@@ -240,7 +241,7 @@ lufthansa.buyPlane = function () {
     console.log(this.planes)
 };
 document.querySelector('.buy').addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
-
+*/
 
 //Partial application
 const addTax = (rate, value) => value + value * rate;
@@ -252,4 +253,91 @@ const addVAT = addTax.bind(null, 0.23);
 
 console.log(addVAT(100));
 console.log(addVAT(23));
+
+
+const addTaxRate = function(rate) {
+    return function(value) {
+        return value + value * rate;
+        }
+}
+
+const addVAT2 = addTaxRate(.023);
+console.log(addVAT(100));
+console.log(addVAT(23));
+
+
+
+// ---------------- Immediately Invoked Function Expressions (IIFE) ------------------------------
+
+//only executed once.
+
+const runOnce = function () {
+    console.log('This will never run again');
+}
+
+runOnce();
+
+// IIFE
+(function() {
+    console.log('This will never run again');
+}) ();
+//we trick javascript by wrapping the function with parentesis
+
+
+(() => console.log('This will ALSO never run again')) ();
+
+
+//functio create scopes. One scope does not have access to variables from a inner scope.
+//the inner scope have access to outside, but the global scope can't access it (anything inside scope)
+
+
+
+
+// ---------------- CLOSURES ------------------------------
+//Closure makes a function remember all the variables that existed at the function birthplace, essentially. 
+//The function was gonne, already executed, but the closure can get back at it.
+
+const secureBooking = function() {
+    let passengerCount = 0;
+
+    return function () {
+        passengerCount++;
+        console.log(`${passengerCount} passengers`);
+    }
+}
+
+const booker = secureBooking();
+
+booker(); //no need of argument, since there's no list of parameters
+booker();
+booker();
+
+console.dir(booker);
+
+
+// -----------
+
+let f;
+
+const g = function () {
+    const a = 23;
+    f = function () { 
+        console.log(a * 2);
+    }
+}
+
+const h = function() {
+    const b = 777;
+    f = function () { 
+        console.log(b * 2);
+    }   
+}
+g();
+f();
+console.dir(f);
+
+//Re-assigning f function
+h();
+f();
+console.dir(f);
 
