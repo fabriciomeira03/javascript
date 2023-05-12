@@ -341,3 +341,24 @@ h();
 f();
 console.dir(f);
 
+
+//Example 2 - TIMER
+const boardPassangers = function(n, wait) {
+    const perGroup = n / 3;
+
+    setTimeout(function () {}, 1000);
+    console.log(`We are now boarding all ${n} passangers`);
+    console.log(`There are 3 groups, each with ${perGroup} passengers`);
+
+    console.log(`will start boarding in ${wait} seconds`);
+}
+
+
+
+const perGroup = 1000; // ATTENTION !!! the closure (below) prevail over this global scope. If wasn't like that, the function above would use this variable here.
+
+
+boardPassengers(180, 3) //when called this function, the variable of line 347 will be created. Then setTimeout (line 349) will be called basically registring the callback function below of that line.
+
+//the 'setTimeout' as executed completely independent from the 'boardPassengers' function.
+
