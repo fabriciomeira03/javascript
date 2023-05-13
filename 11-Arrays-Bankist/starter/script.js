@@ -4,6 +4,8 @@
 /////////////////////////////////////////////////
 // BANKIST APP
 
+
+
 // Data
 const account1 = {
   owner: 'Jonas Schmedtmann',
@@ -61,6 +63,59 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+
+const displayMovements = function(movements) {
+
+  containerMovements.innerHTML = '';
+
+  movements.forEach(function(mov, i) {
+
+    const type = mov > 0 ? 'deposit' : 'withdraw';
+
+    const html = `
+          <div class="movements__row">
+          <div class="movements__type movements__type--${type}}">${i + 1} ${type} </div>
+          <div class="movements__date">3 days ago</div>
+          <div class="movements__value">${mov}4 000€</div>
+          </div>
+    `
+
+    containerMovements.insertAdjacentHTML('afterbegin', html);
+
+  });
+};
+//instead of work with global variables, get used to passing the data that function needs.
+
+displayMovements(account1.movements);
+
+
+const createUsernames = function(accs)  {
+  accs.forEach(function(acc) {
+    
+  accs.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+
+});
+};
+
+createUsernames(accounts)
+console.log(accounts);
+
+console.log(createUsernames('Steven Thomas Williams'));
+
+/*
+const user = 'Steven Thomas Williams'; //stw
+const username = user.toLowerCase().split(' ').map(function(name) {
+  return name[0];
+}).join ('');
+*/
+
+console.log(username);
+
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -76,6 +131,9 @@ const currencies = new Map([
 // const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+
+
+/*
 
 let arr = ['a', 'b', 'c', 'd', 'e'];
 
@@ -179,9 +237,60 @@ currenciesUnique.forEach(function(value, key, map) {
   console.log(`${key}: ${value}`);
 })
 
+*/
+
+// ------------ The MAP Method -----------------
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const eurToUsd = 1.1;
+
+const movementsUSD = movements.map(function(mov) {
+return mov * eurToUsd;
+
+});
+
+
+//movements.forEach((movements) => console.log(movements));minha versão
+//const movementsUSD = movements.map(mov => * eurToUsd);versãoprofessor
+
+//after => symbol, must understand as "return"
+
+console.log(movements);
+console.log(movementsUSD);
 
 
 
+
+
+const movementsUSDfor = [];
+for(const mov of movements) movementsUSDfor.push(mov * eurToUsd);
+console.log(movementsUSDfor);
+
+
+const movementsDescriptions = movements.map((mov, i, arr) =>
+  `Movement${i + 1}: You ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(mov)}`
+
+  );
+
+console.log(movementsDescriptions);
+
+/*
+  if(mov > 0) {
+    return (`Movement ${i + 1}: You deposited ${mov}`);
+  } else {
+    return (`Movement ${i + 1}: You withdrew ${Math.abs(mov)}`);
+  }
+//not practical, but yes, we can have more than one return to the same function, but it's better use the ternary operator as above.
+});
+*/
+console.log(movementsDescriptions);
+
+/*
+const movementsUSDfor = [];
+for (const mov of movements) movementsUSDfor.push(mov * eurToUsd);
+console.log(movementsUSDfor);
+*/
 
 
 
