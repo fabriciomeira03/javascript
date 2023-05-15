@@ -4,7 +4,7 @@
 /////////////////////////////////////////////////
 // BANKIST APP
 
-
+/*
 
 // Data
 const account1 = {
@@ -113,7 +113,7 @@ const username = user.toLowerCase().split(' ').map(function(name) {
 }).join ('');
 */
 
-console.log(username);
+//console.log(username);
 
 
 /////////////////////////////////////////////////
@@ -239,6 +239,8 @@ currenciesUnique.forEach(function(value, key, map) {
 
 */
 
+/*
+
 // ------------ The MAP Method -----------------
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
@@ -284,7 +286,7 @@ console.log(movementsDescriptions);
 //not practical, but yes, we can have more than one return to the same function, but it's better use the ternary operator as above.
 });
 */
-console.log(movementsDescriptions);
+//console.log(movementsDescriptions);
 
 /*
 const movementsUSDfor = [];
