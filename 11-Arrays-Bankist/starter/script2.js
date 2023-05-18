@@ -190,21 +190,21 @@ console.log(totalDepositsUSD);
 
 calcDisplayBalance(account1.movements);
 
-const calcDisplaySummary = function(movements) {
-    const incomes = movements
+const calcDisplaySummary = function(acc) {
+    const incomes = acc.movements
     .filter(mov => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
     labelSumIn.textContent = `${incomes}`;
 
 
-const out = movements
+const out = acc.movements
     .filter(mov => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
     labelSumOut.textContent = `${Math.abs(out)} EUR`; //math.abs to get rid of minus signal.
 
-const interest = movements
+const interest = acc.movements
     .filter(mov => mov > 0)
-    .map(deposit => (deposit * 1.2) / 100)
+    .map(deposit => (deposit * acc.interestRate) / 100)
     .filter((int, i, arr) => {
     console.log(arr);
     return int >= 1;
@@ -244,12 +244,21 @@ btnLogin.addEventListener('click', function(e) {
   if(currentAccount ?.pin === Number(inputLoginPin.value)) { //optional chaining
 
   //Display UI and message
+  labelWelcome.textContent = `Welcome back, ${currentAccount.owner.split(' ')[0]}`;
+  containerApp.getElementsByClassName.opacity = 100;
+
+  //Clear input fields
+  inputLoginUsername = inputLoginPin.value = ' '; //because the assignement operator works from right to left, the " inpugLoginPin.value = '  '  " will become the empty string and it will also be assigned to "inputLoginUsername".
+  inputLoginPin.blur();
 
   //Display movements
+  displayMovements(currentAccount.movements);
 
   //Display balance
+  calcDisplayBalance(currentAccount.movements);
 
   //Display summary
+  calcDisplaySummary(currentAccount);
 
   console.log('LOGIN');
   }
