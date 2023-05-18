@@ -266,6 +266,14 @@ btnLogin.addEventListener('click', function(e) {
 
 
 
+//--------------- Implementing Transfers --------------------
+
+btnTransfer.addEventListener('click', function(e) {
+    e.preventDefault();
+    const amount = (inputTransferAmount.value);
+    const receiverAcc = inputTransferTo.value
+});
+
 
 
 
