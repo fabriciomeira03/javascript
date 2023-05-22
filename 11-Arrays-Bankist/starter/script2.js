@@ -271,8 +271,46 @@ btnLogin.addEventListener('click', function(e) {
 btnTransfer.addEventListener('click', function(e) {
     e.preventDefault();
     const amount = (inputTransferAmount.value);
-    const receiverAcc = inputTransferTo.value
+    const receiverAcc = accounts.find(acc => acc.username === inputTransferTo.value);
+
+    console.log(amount, receiverAcc);
+    
+    if (
+    amount > 0 &&
+    receiverAcc &&
+    
+    currentAccount.balance >= amount && receiverAcc?.username !== currentAccount.username
+    ) {
+      //Doing the transfer
+      currentAccount.movements.push(-amount);
+      receiverAcc.movements.push(amount);
+    } 
 });
+
+
+// ------------- FIND INDEX METHOD --------------------
+
+// ---- Some and Every Method --------
+
+console.log(movements);
+
+//Equality
+console.log(movements.includes(-130));
+
+//Some: condition
+const anyDeposits = movements.some(mov => mov > 0);
+console.log(anyDeposits);
+
+//Every
+console.log(movements.every(mov => mov > 0));
+console.log(account4.movements.every(mov => mov > 0));
+
+//Separate callback
+const deposit = mov => mov > 0;
+console.log(movements.some(deposit));
+console.log(movements.every(deposit));
+console.log(movements.filter(deposit));
+
 
 
 
