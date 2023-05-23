@@ -306,11 +306,48 @@ console.log(movements.every(mov => mov > 0));
 console.log(account4.movements.every(mov => mov > 0));
 
 //Separate callback
-const deposit = mov => mov > 0;
+const deposit = mov => mov > 0;   // <<<< ---------------------------------------------------
 console.log(movements.some(deposit));
 console.log(movements.every(deposit));
 console.log(movements.filter(deposit));
 
+
+
+// ------------- Flat and FlatMap ------------------
+
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+console.log(arr.flat());
+
+const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+console.log(arrDeep.flat(2));
+
+//flat
+const overalBalance = accounts
+  .map(acc => acc.movements)
+  .flat()
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(overalBalance);
+
+//flatMap
+const overalBalance2 = accounts
+  .flatMap(acc => acc.movements) //only goes one level deep and we can not change it.
+  .flat()
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(overalBalance2);
+
+
+//--------- SORTING ARRAYS -------------
+const displayMovements2 = function (movements, sort = false) { //set a 2nd parameter and by default as false. now depending of this parameter, if true or false, will sort the movement or not. it's "false" because by defalt we want to short the order that appear in the array
+
+const movs = srot ? movements.slice().sort((a, b) => a - b) : movements; 
+
+}
+let sorted = false;
+btnSort.addEventListener('click', function(e) {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
+})
 
 
 
