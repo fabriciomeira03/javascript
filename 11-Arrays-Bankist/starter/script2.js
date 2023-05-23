@@ -350,5 +350,30 @@ btnSort.addEventListener('click', function(e) {
 })
 
 
+// ----------- MORE WAYS OF creating and filling arrays -------------------------
 
+console.log([1, 2, 3, 4, 5, 6, 7]);
+console.log(new Array(1, 2, 3, 4, 5, 6, 7));
+
+const x = new Array(7); //this creates a new array with 7 empty elements (opposed to new array with seven elements).
+console.log(x);
+
+x.fill(1, 3); //fill the empty array with 1
+console.log(x); 
+
+
+//Array.from
+const y = Array.from({length: 7}, () => 1);
+console.log(y);
+
+const z = Array.from({length: 7}, (cur, i) => i + 1);
+
+console.log(z);
+
+
+
+labelBalence.addEventListener('click', function() {
+  const movementsUI = Array.from(document.querySelectorAll('.movements__value')); //we just converted the querySelectorAll into an array
+console.log(movementsUI.map(el => el.textContent.replace('symbol', ''))); //symbol and substitute for nothing.
+});
 
