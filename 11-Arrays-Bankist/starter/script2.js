@@ -377,3 +377,4 @@ labelBalence.addEventListener('click', function() {
 console.log(movementsUI.map(el => el.textContent.replace('symbol', ''))); //symbol and substitute for nothing.
 });
 
+
