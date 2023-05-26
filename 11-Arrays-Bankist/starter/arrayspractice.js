@@ -28,3 +28,28 @@ const numDeposits1000 = accounts
     .reduce((count, cur) => (cur >= 1000 ? count + 1 : count), 0);
 
 console.log(numDeposits1000);
+
+/*
+// 3.
+const sums = accounts   
+    .flatMap(acc => acc.movements).reduce((sums, cur) => { cur > 0 ? sums.deposits += cur : sums.withdrawls += cur;
+        return sums;
+    
+}, {deposits: 0, withdrawls: 0}) //can be empty as aswell. this object here, in the callback function above (ternary operator. it is simply "sums", which is our accumulator ---- the last part of deposits/withdrawls are always the accumulator data)
+
+console.log(sums);
+*/
+
+
+
+// 3.1 - same as above DESTRUCTURED
+const {deposits, withdrawls} = accounts
+
+const sums = accounts   
+    .flatMap(acc => acc.movements)
+    .reduce((sums, cur) => {sums [cur > 0 ? 'deposits' : 'withdrawls'] += cur;
+    return sums},
+    
+{deposits: 0, withdrawls: 0}; //can be empty as aswell. this object here, in the callback function above (ternary operator. it is simply "sums", which is our accumulator ---- the last part of deposits/withdrawls are always the accumulator data)
+    
+console.log(deposits, withdrawls);
