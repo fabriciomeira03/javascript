@@ -108,7 +108,7 @@ console.log(time);
 
 
 //4.
-for (const [minute, event] of gameEvents) {
+for (const [min, event] of gameEvents) {
     const half = min <= 45 ? 'FIRST' : 'SECOND';
     console.log(`[HALF] ${min}: ${event}`);
 }
@@ -119,4 +119,22 @@ for (const [minute, event] of gameEvents) {
 
 document.body.append(document.createElement('textarea'));
 document.body.append(document.createElement('button'));
-const text = documen.querySelector('textarea').valueOf;
+const text = document.querySelector('textarea').valueOf;
+
+document.querySelector('button').addEventListener('click', function () {
+    
+    const text = document.querySelector('textarea').value;
+    console.log(text);
+    const rows = text.split('\n');
+    console.log(rows);
+
+for (const row of rows) {
+    const [first, second] = row.toLowerCase().trim().split('_');
+    
+    const output = `${first} ${second.replace(second[0], second[0].toUpperCase)}`;
+    console.log(output.ppadEnd(20, '@'));
+}
+
+});
+
+
